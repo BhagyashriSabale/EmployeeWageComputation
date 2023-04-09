@@ -15,22 +15,20 @@
             Console.WriteLine("Welcome to Employee Wage Computation Problem Statement");
             //UC1-EMployeeAttendance
             Random random = new Random();
-            int employeeAttendence = random.Next(0,2);
-            if (employeeAttendence == IS_FULL_TIME)
+            int employeeAttendence = random.Next(0,3);
+            switch (employeeAttendence)
             {
-                Console.WriteLine("fulltime employee attendence is present");
-                empHrs = 8;
+                case IS_FULL_TIME:
+                    empHrs = 8;
+                    break;
+                case IS_PART_TIME:
+                    empHrs = 4;
+                    break;
+                default:
+                    empHrs = 0;
+                    break;
             }
-            else if(employeeAttendence == IS_PART_TIME) 
-            {
-                Console.WriteLine("Parttime employee attendence is Present");
-                empHrs = 4;
-            }
-            else
-            {
-                Console.WriteLine("employee attendence is absent");
-
-            }
+            
             //UC2
             empWage = EMP_RATE_PER_HR * empHrs;
             Console.WriteLine("Employee wage is:" + empWage);
